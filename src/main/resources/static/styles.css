@@ -1,0 +1,269 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
+body, html {
+    font-family: sans-serif;
+    background-color: rgb(238, 237, 237);
+    width: 100%;
+    margin: 0;
+}
+
+
+header {
+    top: 0;
+    height: 250px;
+    background-image: url(bg.jpg);
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+
+
+.home-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.logo {
+    float: left;
+    padding: 20px;
+}
+
+
+.active {
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: white;
+    text-decoration: none;
+    padding-bottom: 5px;
+    color: black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    position: relative;
+}
+
+
+.navref {
+    color: black;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: rgb(224, 224, 224);
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black
+}
+
+.pages {
+    position: absolute;
+    top: 228px;
+}
+
+.logoutform {
+    margin-left: 94%;
+
+}
+
+/* -----  SIDE BAR  --------*/
+
+.sidenav {
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.side-headers1, .side-headers2, .side-headers {
+    padding: 6px 8px 6px 25px;
+    text-decoration: none;
+    display: block;
+}
+
+.side-headers1:hover, .side-headers2:hover {
+    color: #F28705;
+}
+
+.side-headers1 {
+    font-size: 18px;
+    color: white;
+}
+
+.side-headers {
+    font-size: 25px;
+    color: #818181;
+}
+
+.side-headers2 {
+    font-size: 25px;
+    color: #818181;
+    margin-top: 12px;
+}
+
+
+/*---------  Employee Form add/edit   -----*/
+
+.employee-form {
+    padding: 20px;
+    height: 100%;
+}
+
+.employee-img {
+    float: left;
+    width: 180px;
+    height: 100%;
+    margin-right: 50px;
+    margin-left: 30px;
+}
+
+.avatar {
+    width: 180px;
+    height: 180px;
+    padding-top: 12px;
+}
+
+.input {
+    padding: 10px 10px;
+    margin: 12px 0;
+}
+
+.employee-info-one, .employee-info-two, .employee-info-five, .employee-info-four {
+    float: left;
+    margin-right: 30px;
+}
+
+
+.employee-info-three, .employee-info-six  {
+    float: left;
+    width: 180px;
+}
+
+.personal-header, .personal-header2 {
+    width: 100%;
+    text-align: center;
+    background-color: #08315F;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 16px;
+    color: rgb(252, 249, 249);
+    padding: 4px;
+}
+
+.section-one, .section-two {
+
+    width: 70%;
+}
+
+.section-two {
+    margin-top: 40px;
+}
+
+.section-one, .section-two {
+    float: left;
+
+}
+
+input[type="file"] {
+    width: 180px;
+    margin-top: 12px;
+}
+
+input[type="submit" i] {
+    background-color: #034782;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+input[type="submit" i]:hover {
+    background-color: #F28705;
+}
+
+.save-delete {
+    float: right;
+}
+
+
+/*--------  Employee table Main  -------*/
+
+.list-box {
+    background-color: white;
+    height: 100%;
+    width: 50%;
+    padding: 50px 0px;
+}
+
+#table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+th {
+    text-align: center;
+    background-color: #08315F;
+    margin-bottom: 20px;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+caption {
+    padding: 15px;
+}
+
+.info-box {
+    width: 60%;
+}
+
+.box-home {
+    width: 60%;
+}
+
+#searchInput {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 200px;
+    font-size: 14px;
+    padding: 9px 20px 9px 20px;
+    border: 1px solid #ddd;
+    margin: 0px 0px 12px 0px;
+    float: left;
+}
+
+i {
+    padding: 10px;
+    background: #08315F;
+    color: white;
+    float: left;
+    text-align: center;
+}
+
+.input-container {
+    margin-left: 20px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+

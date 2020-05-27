@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="/login">
+            <img class="logo-img" src="/logo.png">
+        </a>
+    </div>
+    <nav>
+        <form class="logoutform" th:action="@{/logout}" method="post">
+            <input class="signout" type="submit" value="Sign out">
+        </form>
+    </nav>
+
+
+</header>
+
+<div class="home-container">
+    <div class="sidenav">
+        <h3 class="side-headers">Employees</h3>
+        <a class="side-headers1" href="employees.html">All employees</a>
+        <a class="side-headers1" href="employee-form.html">New employee</a>
+
+        <h3 class="side-headers">Customers</h3>
+        <a class="side-headers1" href="#">All customers</a>
+        <a class="side-headers1" href="#">New customer</a>
+
+        <a class="side-headers2" href="#">Caldendar</a>
+        <a class="side-headers2" href="#">Tasks</a>
+    </div>
+    <div class="list-box">
+        <nav class="pages">
+            <a class="active" href="employee">Information</a>
+            <a class="navref" href="employee-form.html">Documentation</a>
+            <a class="navref" href="#">Applications</a>
+        </nav>
+        <form class="employee-form" action="/save" th:object="${employee}" method="POST">
+            <div class="employee-img">
+                <img class="avatar" src="/avatar.png">
+                <div class="myFile" action="/action_page.php">
+                    <input type="file" id="myFile" name="filename">
+                    <input type="submit">
+                </div>
+            </div>
+
+            <div class="section-one">
+                <div class="personal-header">
+                    <h2>Personal information</h2>
+                </div>
+
+                <div class="employee-info-one">
+
+                    <label th:for="first_name">First name:</label><br>
+                    <input type="text" class="input" name="first_name" th:field="*{first_name}"><br>
+
+                    <label th:for="last_name">Last name:</label><br>
+                    <input type="text" class="input" name="last_name" th:field="*{last_name}"><br>
+                </div>
+
+                <div class="employee-info-two">
+                    <label th:for="email">Email:</label><br>
+                    <input type="text" class="input" name="email" th:field="*{email}"><br>
+
+                    <label th:for="phone_number">Phone number:</label><br>
+                    <input type="text" class="input" name="phone_number" th:field="*{phone_number}"><br>
+                </div>
+
+                <div class="employee-info-three">
+                    <label th:for="address">Home address:</label><br>
+                    <input type="text" class="input" name="address" th:field="*{address}"><br>
+
+                    <label th:for="birth_date">Date of birth::</label><br>
+                    <input type="text" class="input" name="birth_date" th:field="*{birth_date}"><br>
+                </div>
+            </div>
+
+            <div class="section-two">
+                <div class="personal-header2">
+                    <h2>Work information</h2>
+                </div>
+                <div class="employee-info-four">
+                    <label th:for="title">Title:</label><br>
+                    <input type="text" class="input" name="title" th:field="*{title}"><br>
+
+                    <label th:for="department">Department:</label><br>
+                    <input type="text" class="input" name="department" th:field="*{department}"><br>
+                </div>
+
+                <div class="employee-info-five">
+                    <label th:for="id">Work Id:</label><br>
+                    <input type="text" class="input" name="id" th:field="*{id}"><br>
+
+                    <label th:for="manager">Report to:</label><br>
+                    <input type="text" class="input" name="manager"><br>
+                </div>
+                <div class="employee-info-six">
+                    <label th:for="id">Work Id:</label><br>
+                    <input type="text" class="input" name="id" th:field="*{id}"><br>
+
+                    <label th:for="manager">Report to:</label><br>
+                    <input type="text" class="input" name="manager"><br>
+                </div>
+
+                <br>
+                <div class="save-delete">
+                    <input th:if="${id != null}" type="hidden" th:field="*{id}"/>
+                    <input type="submit" value="Save ">
+
+                    <input th:if="${id != null}" type="hidden" th:field="*{id}"/>
+                    <input type="submit" value="Delete">
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>
