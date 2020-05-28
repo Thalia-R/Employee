@@ -67,7 +67,7 @@
                     <label th:for="email">Email:</label><br>
                     <input type="text" class="input" name="email" th:field="*{email}"><br>
 
-                    <label th:for="phone_number">Phone number:</label><br>
+                   <label th:for="phone_number">Phone number:</label><br>
                     <input type="text" class="input" name="phone_number" th:field="*{phone_number}"><br>
                 </div>
 
@@ -110,10 +110,14 @@
                 <br>
                 <div class="save-delete">
                     <input th:if="${id != null}" type="hidden" th:field="*{id}"/>
-                    <input type="submit" value="Save ">
+                    <input type="submit" value="Save">
+
 
                     <input th:if="${id != null}" type="hidden" th:field="*{id}"/>
-                    <input type="submit" value="Delete">
+                    <input action="/delete/{id}" th:object="${employee}" method="POST" type="submit" value="Delete"
+                    onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+
+                    <a href="@{/delete/{id}(id=${employee.id})}">Delete</a>
                 </div>
 
             </div>

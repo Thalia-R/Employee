@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,7 +43,7 @@ public class EmployeeController {
     public String saveEmployee(@ModelAttribute Employee employee) {
         employeeRepository.save(employee);
 
-        return "employees";
+        return "redirect:/employees";
     }
 
     // edit employee
@@ -51,6 +53,15 @@ public class EmployeeController {
         model.addAttribute("employee", employee);
 
         return "employee-form";
+    }
+
+    // delete employee from form data
+    @PostMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable (value = "id") Integer id) {
+        Employee emp = employeeRepository.findById(id).get();
+        employeeRepository.delete(emp);
+
+        return "redirect:/employees";
     }
 
 
