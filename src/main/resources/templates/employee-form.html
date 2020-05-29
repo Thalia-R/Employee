@@ -114,6 +114,10 @@
 
                     <input th:if="${id != null}" type="hidden" th:field="*{id}"/>
                     <input type="submit" value="Delete">
+                    <input action="/delete/{id}" th:object="${employee}" method="POST" type="submit" value="Delete"
+                           onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+
+                    <a href="@{/delete/{id}(id=${employee.id})}">Delete</a>
                 </div>
 
             </div>
