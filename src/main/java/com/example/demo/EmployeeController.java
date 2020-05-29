@@ -4,6 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+<<<<<<< HEAD
+=======
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> d1ee88c702e4dba7add8f128bb4dd35eb2b79e97
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
@@ -53,11 +61,36 @@ public class EmployeeController {
     }
 
 
+<<<<<<< HEAD
     // delete employee from form data
     @PostMapping("/delete")
     public String deleteEmployee(Integer id) {
         return null;
     }
 
+=======
+        return "redirect:/employees";
+    }
+
+    // edit employee
+    @GetMapping("/edit/{id}")
+    public String editEmployee(Model model, @PathVariable Integer id) {
+        Employee employee = employeeRepository.findById(id).get();
+        model.addAttribute("employee", employee);
+
+        return "employee-form";
+    }
+
+    // delete employee from form data
+    @PostMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable (value = "id") Integer id) {
+        Employee emp = employeeRepository.findById(id).get();
+        employeeRepository.delete(emp);
+
+        return "redirect:/employees";
+    }
+
+
+>>>>>>> d1ee88c702e4dba7add8f128bb4dd35eb2b79e97
 
 }
