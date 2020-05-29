@@ -25,16 +25,10 @@
 <div class="home-container">
     <div class="sidenav">
         <h3 class="side-headers">Employees
-<<<<<<< HEAD
+
         </h3>
         <a class="side-headers1" href="#">All employees</a>
         <a class="side-headers1" href="/new-employee-form">New employee</a>
-=======
-            <h3>
-                <a class="side-headers1" href="#">All employees</a>
-                <a class="side-headers1" href="/new-employee-form">New employee</a>
->>>>>>> d1ee88c702e4dba7add8f128bb4dd35eb2b79e97
-
         <h3 class="side-headers">Customers</h3>
         <a class="side-headers1" href="#">All customers</a>
         <a class="side-headers1" href="#">New customer</a>
@@ -74,7 +68,8 @@
                 <a th:if="${i != currentPage}" th:href="@{'/page/' + ${i}}">[[${i}]]</a>
                 <span th:unless="${i != currentPage}">[[${i}]]</span>
             </span>
-            <a class="pagination-nav" th:if="${currentPage < totalNumberOfPages}" th:href="@{'/page/' + ${currentPage + 1}}">Next</a>
+            <a class="pagination-nav" th:if="${currentPage < totalNumberOfPages}"
+               th:href="@{'/page/' + ${currentPage + 1}}">Next</a>
             <!---- if/unless to removes ""next" if there are no more pages -->
             <span th:unless="${currentPage < totalNumberOfPages}"></span>
         </div>
