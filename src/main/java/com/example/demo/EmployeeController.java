@@ -48,14 +48,6 @@ public class EmployeeController {
         return "employees";
     }
 
-    //  add employee from form
-    @GetMapping("/add")
-    public String EmployeeForm(Model model) {
-        Employee employee = new Employee();
-        model.addAttribute("employee", employee);
-
-        return "employee-form";
-    }
 
 
     // edit employee
@@ -68,13 +60,26 @@ public class EmployeeController {
     }
 
     // delete employee from form data
-    @PostMapping("/delete/{id}")
-    public String deleteEmployee(@PathVariable(value = "id") Integer id) {
-        Employee emp = employeeRepository.findById(id).get();
-        employeeRepository.delete(emp);
+    @RequestMapping("/delete/{id}")
+    public String deleteEmployeeById(Model model, @PathVariable("id") Integer id) {
+        employeeService.deleteEmployeeById(id);
 
-        return "redirect:/employees";
+        return "redirect:/";
     }
+
+
+    @GetMapping("/add")
+    public String addEmployee(Model model) {
+        model.addAttribute("employee", new Employee());
+        return "new-employee-form";
+    }
+
+    @PostMapping("/save")
+    public String set(@ModelAttribute Employee employee) {
+        employeeRepository.save(employee);
+        return "redirect:/";
+    }
+
 
 
 }

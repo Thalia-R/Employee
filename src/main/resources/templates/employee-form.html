@@ -24,8 +24,8 @@
 <div class="home-container">
     <div class="sidenav">
         <h3 class="side-headers">Employees</h3>
-        <a class="side-headers1" href="employees.html">All employees</a>
-        <a class="side-headers1" href="employee-form.html">New employee</a>
+        <a class="side-headers1" href="/">All employees</a>
+        <a class="side-headers1" href="/add">New employee</a>
 
         <h3 class="side-headers">Customers</h3>
         <a class="side-headers1" href="#">All customers</a>
@@ -108,28 +108,24 @@
                 </div>
 
                 <br>
-                <div class="save-delete">
+                <div class="save-delete" action="/delete/{id}" th:object="${employee}" method="POST">
                     <input th:if="${id != null}" type="hidden" th:field="*{id}"/>
                     <input type="submit" value="Save">
 
 
                     <input th:if="${id != null}" type="hidden" th:field="*{id}"/>
-<<<<<<< HEAD
-                    <input type="submit" value="Delete">
-                    <input action="/delete/{id}" th:object="${employee}" method="POST" type="submit" value="Delete"
-                           onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
-=======
-                    <input action="/delete/{id}" th:object="${employee}" method="POST" type="submit" value="Delete"
-                    onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
->>>>>>> d1ee88c702e4dba7add8f128bb4dd35eb2b79e97
 
-                    <a href="@{/delete/{id}(id=${employee.id})}">Delete</a>
+                    <a th:href="@{/delete/{id}(id=${employee.id})}"
+                       onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">delete
+                    </a>
+
                 </div>
 
             </div>
 
         </form>
     </div>
+
 </div>
 </body>
 </html>

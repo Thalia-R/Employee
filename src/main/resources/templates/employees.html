@@ -10,7 +10,7 @@
 <header>
     <div class="logo">
         <a href="/login">
-            <img alt="company logo" class="logo-img" src="logo.png">
+            <img class="logo-img" src="/logo.png">
         </a>
     </div>
     <nav>
@@ -18,17 +18,13 @@
             <input class="signout" type="submit" value="Sign out">
         </form>
     </nav>
-
-
 </header>
-
 <div class="home-container">
     <div class="sidenav">
-        <h3 class="side-headers">Employees
-
-        </h3>
+        <h3 class="side-headers">Employees</h3>
         <a class="side-headers1" href="#">All employees</a>
-        <a class="side-headers1" href="/new-employee-form">New employee</a>
+        <a class="side-headers1" href="/add">New employee</a>
+
         <h3 class="side-headers">Customers</h3>
         <a class="side-headers1" href="#">All customers</a>
         <a class="side-headers1" href="#">New customer</a>
@@ -37,12 +33,13 @@
         <a class="side-headers2" href="#">Tasks</a>
     </div>
     <div class="list-box">
-        <div class="input-container">
+        <div class="search-container">
             <i class="fa fa-search"></i>
-            <input type="text" id="searchInput" onkeyup="myFunction()" placeholder="Search for names.."
-                   title="Type in a name">
+            <input type="text" id="searchInput" onkeyup="myFunction()" placeholder="Search for names..">
         </div>
-        Total Employees: [[${totalNumberOfEmployees}]]
+        <div class="total-count">
+            Total: [[${totalNumberOfEmployees}]]
+        </div>
         <table id="table">
             <tr>
                 <th>First name</th>
@@ -59,6 +56,7 @@
                 </tr>
             </th:block>
         </table>
+
         <!---- PAGINATION ----->
         <div class="pagination">
             <a class="pagination-nav" th:if="${currentPage > 1}" th:href="@{'/page/' + ${currentPage - 1}}">Previous</a>
@@ -74,6 +72,7 @@
             <span th:unless="${currentPage < totalNumberOfPages}"></span>
         </div>
 
+        <!-----  Funker kun å søke på 1 side ----->
         <script>
             function myFunction() {
                 let input, filter, table, tr, td, i, txtValue;
