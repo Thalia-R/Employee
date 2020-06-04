@@ -20,12 +20,13 @@ public class Employee {
     private int phone_number;
     private String address;
     private String birth_date;
+    private String photo;
 
     public Employee() {
 
     }
 
-    public Employee(int id, String first_name, String last_name, String title, String department, String email, int phone_number, String address, String birth_date) {
+    public Employee(int id, String first_name, String last_name, String title, String department, String email, int phone_number, String address, String birth_date, String photo) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -35,6 +36,7 @@ public class Employee {
         this.phone_number = phone_number;
         this.address = address;
         this.birth_date = birth_date;
+        this.photo = photo;
     }
 
 
@@ -109,4 +111,8 @@ public class Employee {
     public void setBirth_date(String birth_date) {
         this.birth_date = birth_date;
     }
+
+    public String getPhoto() { return photo; }
+
+    public void setPhoto(String photo) { this.photo = photo; }
 }

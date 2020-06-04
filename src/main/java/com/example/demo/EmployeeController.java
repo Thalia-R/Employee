@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
@@ -68,17 +70,27 @@ public class EmployeeController {
     }
 
 
+    // creates a new employee
     @GetMapping("/add")
     public String addEmployee(Model model) {
         model.addAttribute("employee", new Employee());
         return "new-employee-form";
     }
 
+    // saves the new employee to database
     @PostMapping("/save")
     public String set(@ModelAttribute Employee employee) {
         employeeRepository.save(employee);
         return "redirect:/";
     }
+
+    // FILES - Documentation view
+
+
+
+
+
+
 
 
 

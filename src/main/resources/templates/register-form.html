@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="/login">
+            <img class="logo-img" src="logo.png">
+        </a>
+    </div>
+    <nav>
+        <form class="logoutform" th:action="@{/logout}" method="post">
+            <input class="signout" type="submit" value="Sign out">
+        </form>
+    </nav>
+</header>
+<div class="form-container">
+    <form class="login-form" action="/action_page.php" style="max-width:500px;margin:auto">
+        <h2 class="login-text">Register</h2>
+
+        <div class="input-container">
+            <i class="icon"></i>
+            <input class="input-field" type="text" placeholder="First name" name="fname">
+        </div>
+        <div class="input-container">
+            <i class="icon"></i>
+            <input class="input-field" type="text" placeholder="Last name" name="lname">
+        </div>
+
+        <div class="input-container">
+            <i class="fa fa-user icon"></i>
+            <input class="input-field" type="text" placeholder="Username" name="usrnm">
+        </div>
+
+        <div class="input-container">
+            <i class="fa fa-envelope icon"></i>
+            <input class="input-field" type="text" placeholder="Email" name="email">
+        </div>
+
+        <div class="input-container">
+            <i class="fa fa-key icon"></i>
+            <input class="input-field" type="password" placeholder="Password" name="psw">
+        </div>
+
+        <div class="input-container">
+            <i class="fa fa-key icon"></i>
+            <input class="input-field" type="password" placeholder="Confirm Password" name="psw">
+        </div>
+        <button type="submit" class="btn">Register</button>
+    </form>
+
+</div>
+</body>
+</html>
