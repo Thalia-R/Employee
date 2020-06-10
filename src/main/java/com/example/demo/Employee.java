@@ -1,9 +1,8 @@
 package com.example.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Employee {
@@ -21,6 +20,9 @@ public class Employee {
     private String address;
     private String birth_date;
     private String photo;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<Files> fileList = new ArrayList<>();
 
     public Employee() {
 

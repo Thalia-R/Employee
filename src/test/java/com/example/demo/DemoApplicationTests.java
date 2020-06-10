@@ -13,6 +13,9 @@ class DemoApplicationTests {
     @Autowired
     EmployeeRepository employeeRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
     @Test
     void contextLoads() {
     }
@@ -20,11 +23,13 @@ class DemoApplicationTests {
 
     @Test
     void shouldFindNumberOfEmployees() {
-
         assertEquals(3, employeeRepository.count());
-
     }
 
 
+    @Test
+    void shouldFindNumberOfUsers() {
+        assertEquals(0, userRepository.count());
+    }
 
 }

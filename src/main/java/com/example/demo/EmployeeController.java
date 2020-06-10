@@ -4,16 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.util.Collections;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @Controller
@@ -25,13 +18,19 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
+    @Autowired
+    UserRepository userRepository;
 
-    @GetMapping("/")
+    User user;
+
+
+    @GetMapping("/employee")
     public String viewAllEmployees(Model model) {
-
+        model.addAttribute("user", new User());
         return paginationForm(model, 1);
     }
 
+    // Pagination
     @GetMapping("/page/{pageNumber}")
     public String paginationForm(Model model, @PathVariable("pageNumber") int currentPage) {
 
@@ -84,7 +83,27 @@ public class EmployeeController {
         return "redirect:/";
     }
 
-    // FILES - Documentation view
+    @GetMapping("/login")
+    public String loginPage(Model model) {
+        model.addAttribute("user", new User());
+        return "login";
+    }
+
+    @GetMapping("/")
+    public String loginPageDefault(Model model) {
+        model.addAttribute("user", new User());
+        return "login";
+    }
+
+
+
+    // creates a new user
+
+
+
+
+
+
 
 
 

@@ -39,8 +39,5 @@ public class EmployeeService {
         employeeRepository.deleteById(id);
     }
 
-    // file upload
-
-
 
 }
