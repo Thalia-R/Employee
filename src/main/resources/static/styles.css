@@ -135,6 +135,7 @@ header {
     margin: 12px 0;
 }
 
+
 .employee-info-one, .employee-info-two, .employee-info-five, .employee-info-four {
     float: left;
     margin-right: 30px;
@@ -146,11 +147,31 @@ header {
     width: 180px;
 }
 
+/*--- FOR VIEW EMPLOYEE --- */
+.employee-one, .employee-two, .employee-five, .employee-four {
+    float: left;
+    margin-right: 60px;
+}
+
+
+.employee-three, .employee-six {
+    float: left;
+    width: 180px;
+}
+
+.employee-info {
+    padding: 10px 0px;
+    margin: 12px 0;
+    font-weight: bold;
+}
+
+/* */
+
 .personal-header, .personal-header2 {
     width: 100%;
     text-align: center;
     background-color: #08315F;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 h2 {
@@ -160,17 +181,16 @@ h2 {
 }
 
 .section-one, .section-two {
-
     width: 70%;
 }
 
-.section-two {
-    margin-top: 40px;
+
+.section-one{
+    float: left;
 }
 
-.section-one, .section-two {
-    float: left;
-
+.section-two {
+    float: right;
 }
 
 input[type="file"] {

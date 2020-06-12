@@ -30,7 +30,6 @@ public class EmployeeController {
         return paginationForm(model, 1);
     }
 
-    // Pagination
     @GetMapping("/page/{pageNumber}")
     public String paginationForm(Model model, @PathVariable("pageNumber") int currentPage) {
 
@@ -52,8 +51,17 @@ public class EmployeeController {
 
 
     // edit employee
-    @GetMapping("/edit/{id}")
+    @GetMapping("/edit-employee/{id}")
     public String editEmployee(Model model, @PathVariable Integer id) {
+        Employee employee = employeeRepository.findById(id).get();
+        model.addAttribute("employee", employee);
+
+        return "edit-employee";
+    }
+
+    // View Employee
+    @GetMapping("/employee-form/{id}")
+    public String viewEmployee(Model model, @PathVariable Integer id) {
         Employee employee = employeeRepository.findById(id).get();
         model.addAttribute("employee", employee);
 

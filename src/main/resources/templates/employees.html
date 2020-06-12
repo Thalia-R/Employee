@@ -49,10 +49,10 @@
             </tr>
             <th:block th:each="employees : ${employeeList}">
                 <tr>
-                    <td th:text="${employees.first_name}"></td>
+                    <td><a th:href="'/employee-form/' + ${employees.id}" th:text="${employees.first_name}"></a></td>
                     <td th:text="${employees.last_name}"></td>
                     <td th:text="${employees.title}"></td>
-                    <td><a th:href="'/edit/' + ${employees.id}">Edit</a></td>
+                    <td><a th:href="'/edit-employee/' + ${employees.id}">Edit</a></td>
                 </tr>
             </th:block>
         </table>
