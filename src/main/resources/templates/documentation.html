@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Documentation</title>
+    <title>Employee</title>
     <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
@@ -34,48 +34,38 @@
     <div class="list-box">
         <nav class="pages">
             <a class="active" href="employee">Information</a>
-            <a class="navref" href="employee-form.html">Documentation</a>
+            <a class="navref" th:href="'/documentation' + ${employee.id}">Documentation</a>
             <a class="navref" href="#">Applications</a>
         </nav>
         <form class="employee-form" action="/save" th:object="${employee}" method="POST">
-            <div class="employee-img">
-                <img class="avatar" th:src="*{photo}">
-                <div class="myFile" action="/action_page.php">
-                    <input type="file" id="myFile" name="filename" th:field="*{photo}">
+            <div class="section-one">
+                <div class="personal-header">
+                    <h2>Documentation</h2>
+                </div>
+                <div class="employee-info-one">
+                    <form method="POST" enctype="multipart/form-data" th:action="@{/fileUpload}">
+                        <table>
+                            <tr>
+                                <td>File to upload:</td>
+                                <td>
+                                    <input type="file" name="file"/></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><input type="submit" value="Upload"/></td>
+                            </tr>
+                        </table>
+                    </form>
                 </div>
             </div>
-            <div class="documentation-left">
-                <div class="personal-header">
-                    <h2>Download files: </h2>
-                    <div th:if="${message}">
-                        <h2 th:text="${message}"/>
-                    </div>
-                    <div>
-                        <form method="POST" enctype="multipart/form-data" action="/">
-                            <table>
-                                <tr>
-                                    <td>File to upload:</td>
-                                    <td><input type="file" name="file"/></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td><input type="submit" value="Upload"/></td>
-                                </tr>
-                            </table>
-                        </form>
-                    </div>
-                </div>
-                <div class="documentation-right">
-                    <div class="personal-header2">
-                        <h2>Saved files</h2>
-                        <div>
-                            <ul>
-                                <li th:each="file : ${files}">
-                                    <a th:href="${file}" th:text="${file}"/>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="section-two">
+                <div class="personal-header2">
+                    <h2>Saved files:</h2>
+                    <ul>
+                        <li >
+
+                        </li>
+                    </ul>
                 </div>
             </div>
         </form>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -34,12 +35,14 @@
     <div class="list-box">
         <nav class="pages">
             <a class="active" href="employee">Information</a>
-            <a class="navref" href="documentation">Documentation</a>
+            <a class="navref" href="/documentation">Documentation</a>
             <a class="navref" href="#">Applications</a>
         </nav>
+
+
         <form class="employee-form"  th:object="${employee}">
             <div class="employee-img">
-                <img class="avatar" th:src="*{photo}">
+                <img class="avatar">
                 <div class="myFile" action="/action_page.php">
                     <input type="file" id="myFile" name="filename" th:field="*{photo}">
                 </div>

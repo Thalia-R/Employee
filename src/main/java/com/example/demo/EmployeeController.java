@@ -6,7 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.util.Base64;
 import java.util.List;
 
 @Controller
@@ -21,6 +24,9 @@ public class EmployeeController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    FileRepository fileRepository;
+
     User user;
 
 
@@ -32,7 +38,6 @@ public class EmployeeController {
 
     @GetMapping("/page/{pageNumber}")
     public String paginationForm(Model model, @PathVariable("pageNumber") int currentPage) {
-
 
         Page<Employee> page = employeeService.listAll(currentPage);
         long totalNumberOfEmployees = page.getTotalElements();
@@ -48,12 +53,11 @@ public class EmployeeController {
         return "employees";
     }
 
-
-
     // edit employee
     @GetMapping("/edit-employee/{id}")
     public String editEmployee(Model model, @PathVariable Integer id) {
         Employee employee = employeeRepository.findById(id).get();
+
         model.addAttribute("employee", employee);
 
         return "edit-employee";
@@ -75,6 +79,22 @@ public class EmployeeController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/documentation/{id}")
+    public String viewAllFiles(Model model, @PathVariable Integer id) {
+        Employee employee = employeeRepository.findById(id).get();
+        model.addAttribute("employee", employee);
+
+        return "documentation";
+    }
+
+
+    @PostMapping("/fileupload")
+    public String uploadFiles(@RequestParam("file")MultipartFile file) {
+       fileRepository.save(file);
+        return "uploadSucess";
+    }
+
 
 
     // creates a new employee
@@ -104,21 +124,7 @@ public class EmployeeController {
     }
 
 
-
     // creates a new user
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

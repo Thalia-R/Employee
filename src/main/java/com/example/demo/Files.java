@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "files")
+
 public class Files {
 
     @Id
@@ -33,6 +33,7 @@ public class Files {
         this.file_type = file_type;
         this.data = data;
     }
+
 
     public int getId() {
         return id;

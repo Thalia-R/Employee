@@ -37,11 +37,11 @@
             <a class="navref" href="employee-form.html">Documentation</a>
             <a class="navref" href="#">Applications</a>
         </nav>
-        <form class="employee-form" action="/save" th:object="${employee}" method="POST">
+        <form class="employee-form" enctype="multipart/form-data" action="/save" th:object="${employee}" method="POST">
             <div class="employee-img">
                 <img class="avatar" src="/avatar.png">
-                <div class="myFile" action="/action_page.php">
-                    <input type="file" id="myFile" name="filename">
+                <div class="myFile">
+                    <input type="file" id="myFile" name="photo" th:field="*{photo}">
                     <input type="submit">
                 </div>
             </div>

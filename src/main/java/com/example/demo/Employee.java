@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import javax.persistence.*;
+import javax.servlet.http.Part;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,16 +20,21 @@ public class Employee {
     private int phone_number;
     private String address;
     private String birth_date;
-    private String photo;
+
+    @Lob
+    private byte[] photo;
+
+
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Files> fileList = new ArrayList<>();
+
 
     public Employee() {
 
     }
 
-    public Employee(int id, String first_name, String last_name, String title, String department, String email, int phone_number, String address, String birth_date, String photo) {
+    public Employee(int id, String first_name, String last_name, String title, String department, String email, int phone_number, String address, String birth_date, byte[] photo) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -114,7 +120,11 @@ public class Employee {
         this.birth_date = birth_date;
     }
 
-    public String getPhoto() { return photo; }
+    public byte[] getPhoto() {
+        return photo;
+    }
 
-    public void setPhoto(String photo) { this.photo = photo; }
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
+    }
 }

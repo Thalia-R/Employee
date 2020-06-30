@@ -34,14 +34,14 @@
     <div class="list-box">
         <nav class="pages">
             <a class="active" href="employee">Information</a>
-            <a class="navref" href="employee-form.html">Documentation</a>
+            <a class="navref" th:href="'/documentation/' + ${employee.id}">Documentation</a>
             <a class="navref" href="#">Applications</a>
         </nav>
         <form class="employee-form" action="/save" th:object="${employee}" method="POST">
             <div class="employee-img">
                 <img class="avatar" th:src="*{photo}">
                 <div class="myFile" action="/action_page.php">
-                    <input type="file" id="myFile" name="filename" th:field="*{photo}">
+                    <input type="file" id="photo" name="filename" th:value="*{photo}" th:field="*{photo}">
                 </div>
             </div>
             <div class="section-one">
